@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Comment Form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ITF chat contest</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&amp;display=swap" rel="stylesheet">
   </head>
   <body>
-    <table border="1px">
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>comment</th>
-          <th>link</th>
-        </tr>
-      </thead>
-      <tbody id="dataRow"></tbody>
-    </table>
-    <br />
-    <form id="CommentForm">
-      Name:<br />
-      <input type="text" id="idName" placeholder="Enter Name" /> <br />
-      Comment:<br />
-      <textarea
-        rows="10"
-        cols="20"
-        id="idComment"
-        placeholder="Enter Comment"
-      ></textarea
-      ><br />
-      Link:<br />
-      <input type="text" id="idLink" placeholder="Enter Link" /> <br /><br />
-      <input type="submit" id="commentBtn" />
-    </form>
+    <body style="font-family: 'Tomorrow', sans-serif; background-color: #335C67; color: #E09F3E" class="container">
+    <h1 class="m-5">Email Application</h1>
+    <div class="container row m-2">
+        <div class="col-7 form-group">
+            <form id="CommentForm" class="container">
+                    <h3>New Massage</h3><br>
+            <input type="text" id="idName" placeholder="To ...">
+            <br>
+            <br>
+            <textarea rows="10" cols="20" id="idComment" placeholder="Enter Message"></textarea><br>
+            <br>
+            <input type="text" id="idLink" placeholder="Enter Link"> <br><br>
+            <button type="submit" class="btn btn-dark" style="color: #EEEEEE" id="commentBtn">
+              Send !
+            </button>
+        </form>
+        </div>
+        <div class="col-5">
+            <div class="container">
+                <h3 class="mb-2">Contact</h3>
+               <table class="table table-hover table-bordered" style="color: #E09F3E">
+                <th>friend</th>
+                </table>
+            </div>
+        </div>    
+    </div>
+    <div class="row mb-5 ml-5 mr-5 mt-3">
+            <h3>Inbox</h3><br>
+        <table class="container table table-hover mt-3" style="color: #E09F3E">
+            <thead>
+                <tr>
+                <th>To</th>
+                <th>Message</th>
+                <th>Image</th>
+                </tr>
+            </thead>
+        <tbody id="dataRow"></tbody>
+        </table>
+    </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
 
@@ -52,7 +70,6 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-
       let myFirebase = firebase.database();
       let dataRef = myFirebase.ref("/fortest");
       document.getElementById("commentBtn").onclick = function() {
@@ -74,10 +91,10 @@
           item.name +
           "</td><td>" +
           item.comment +
-          "</td><td>" +
-          item.link +
+          "</td><td>" + "<img src=" +
+          item.link + " + width=" + 50 + " + height=" + 50 + ">" +
           "</td></tr>";
       });
     </script>
-  </body>
+</body>
 </html>
